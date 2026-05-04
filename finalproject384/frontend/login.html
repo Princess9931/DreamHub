@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DreamHub - Career Guidance Portal</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .auth-wrapper {
+      width: 100%;
+      max-width: 480px;
+    }
+    .auth-card {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+      animation: slideUp 0.5s ease-out;
+    }
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .auth-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .auth-header h1 {
+      font-size: 2.5rem;
+      color: #667eea;
+      margin: 0 0 0.5rem;
+      font-weight: 800;
+    }
+    .auth-header .logo-icon {
+      font-size: 3.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .auth-header p {
+      color: #718096;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0.5rem 0 0;
+    }
+    .auth-tabs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+      margin-bottom: 1.8rem;
+      background: #f7fafc;
+      padding: 0.6rem;
+      border-radius: 12px;
+    }
+    .auth-tab {
+      border: none;
+      background: transparent;
+      color: #718096;
+      padding: 0.9rem 1rem;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+    .auth-tab:hover {
+      background: rgba(102, 126, 234, 0.1);
+      color: #667eea;
+    }
+    .auth-tab.active {
+      background: white;
+      color: #667eea;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+    }
+    .form-row {
+      margin-bottom: 1.3rem;
+    }
+    .form-row label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #2d3748;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .form-row input {
+      width: 100%;
+      padding: 0.95rem 1rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      outline: none;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      background: #f7fafc;
+    }
+    .form-row input:focus {
+      border-color: #667eea;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+    .form-row input::placeholder {
+      color: #a0aec0;
+    }
+    .auth-submit {
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 0.5rem;
+    }
+    .auth-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    }
+    .auth-submit:active {
+      transform: translateY(0);
+    }
+    .auth-message {
+      margin-top: 1rem;
+      min-height: 1.5rem;
+      font-weight: 600;
+      text-align: center;
+      font-size: 0.95rem;
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .auth-help {
+      margin-top: 1.2rem;
+      text-align: center;
+      color: #718096;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      padding: 1rem;
+      background: #f7fafc;
+      border-radius: 10px;
+    }
+    .hidden {
+      display: none;
+    }
+    .divider {
+      margin: 1.5rem 0;
+      text-align: center;
+      color: #cbd5e0;
+      font-size: 0.9rem;
+    }
+    .divider::before,
+    .divider::after {
+      content: '';
+      display: inline-block;
+      width: 45%;
+      height: 1px;
+      background: #cbd5e0;
+      vertical-align: middle;
+      margin: 0 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="logo-icon">🎓</div>
+        <h1>DreamHub</h1>
+        <p>Career Guidance Portal<br>अपने सपने को सफलता में बदलो</p>
+      </div>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tab-login" onclick="switchAuth('login')">Login</button>
+        <button class="auth-tab" id="tab-register" onclick="switchAuth('register')">Register</button>
+      </div>
+
+      <form id="auth-form" onsubmit="submitAuth(event)">
+        <div class="form-row">
+          <label for="email">📧 Email / Username</label>
+          <input id="email" type="text" placeholder="yourname@example.com या username">
+        </div>
+        <div class="form-row">
+          <label for="password">🔐 Password</label>
+          <input id="password" type="password" placeholder="कम से कम 6 characters">
+        </div>
+        <div class="form-row hidden" id="confirm-row">
+          <label for="confirmPassword">🔐 Confirm Password</label>
+          <input id="confirmPassword" type="password" placeholder="Password फिर से दो">
+        </div>
+        <button class="auth-submit" type="submit">Login</button>
+      </form>
+
+      <p id="auth-message" class="auth-message"></p>
+      
+      <div class="auth-help">
+        <strong>💡 Tip:</strong> Backend properly connected है। Register करने के बाद login करो।
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

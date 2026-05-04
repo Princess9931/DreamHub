@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Guidance - शिक्षा से सफलता तक</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══ FIXED: Login/Register OR User+Logout — Top Right Corner ═══ -->
+<div id="fixed-auth-area" class="fixed-auth-area"></div>
+
+<!-- ═══ FIXED: Our Team — Bottom Right Corner ═══ -->
+<div id="team-widget" class="team-widget">
+  <div class="team-widget-header" onclick="toggleTeamWidget()">
+    <span>👥 Our Team</span>
+    <span class="team-toggle-icon" id="team-toggle-icon">▲</span>
+  </div>
+  <div class="team-widget-body" id="team-widget-body">
+    <div class="team-member-mini">
+      <div class="mini-avatar" style="background:linear-gradient(135deg,#667eea,#764ba2);overflow:hidden;padding:0;"><img src="../finalprofile/Abhiprofile/photo.jpeg" alt="Abhishek" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+      <div class="mini-info"><div class="mini-name">Abhishek Bachchan</div><div class="mini-role">CSE Student</div></div>
+      <a href="../finalprofile/Abhiprofile/index.html" class="mini-link" title="View Profile">→</a>
+    </div>
+    <div class="team-member-mini">
+      <div class="mini-avatar" style="background:linear-gradient(135deg,#f093fb,#f5576c);overflow:hidden;padding:0;"><img src="../finalprofile/Alokprofile/photo.jpeg" alt="Alok" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+      <div class="mini-info"><div class="mini-name">Alok Raj</div><div class="mini-role">CSE Student</div></div>
+      <a href="../finalprofile/Alokprofile/index.html" class="mini-link" title="View Profile">→</a>
+    </div>
+    <div class="team-member-mini">
+      <div class="mini-avatar" style="background:linear-gradient(135deg,#4facfe,#00f2fe);overflow:hidden;padding:0;"><img src="../finalprofile/Goluprofile/photo.jpeg" alt="Golu" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+      <div class="mini-info"><div class="mini-name">Golu Raj</div><div class="mini-role">CSE Student</div></div>
+      <a href="../finalprofile/Goluprofile/index.html" class="mini-link" title="View Profile">→</a>
+    </div>
+    <div class="team-member-mini">
+      <div class="mini-avatar" style="background:linear-gradient(135deg,#43e97b,#38f9d7);overflow:hidden;padding:0;"><img src="../finalprofile/Princeprofile/photo.jpeg" alt="Prince" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+      <div class="mini-info"><div class="mini-name">Prince Raj</div><div class="mini-role">CSE Student</div></div>
+      <a href="../finalprofile/Princeprofile/index.html" class="mini-link" title="View Profile">→</a>
+    </div>
+    <div class="team-member-mini">
+      <div class="mini-avatar" style="background:linear-gradient(135deg,#fa709a,#fee140);overflow:hidden;padding:0;"><img src="../finalprofile/Priyanshuprofile/photo.jpeg" alt="Priyanshu" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+      <div class="mini-info"><div class="mini-name">Priyanshu Kumar</div><div class="mini-role">CSE Student</div></div>
+      <a href="../finalprofile/Priyanshuprofile/index.html" class="mini-link" title="View Profile">→</a>
+    </div>
+    <a href="team.html" class="team-view-all">View Full Team Page →</a>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <div class="hero-copy">
+      <h1>🎓 DreamHub</h1>
+      <p>10वीं से उच्च शिक्षा तक — हर कदम की पूरी जानकारी + सरकारी नौकरी के अवसर</p>
+      <div class="hero-buttons">
+        <button class="primary-btn" onclick="openChatbot()">Start Career Path</button>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">Career Guidance, Simple & Reliable</div>
+      <p>DreamHub में आपको मिलेगा कदम-दर-कदम roadmap, पढ़ाई से रोजगार तक, और सरकारी नौकरी की तैयारी का साफ़ रास्ता।</p>
+      <ul class="hero-features">
+        <li>Step-by-step education roadmap</li>
+        <li>Board exams, streams, vocational courses</li>
+        <li>Top government job paths और official portals</li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="nav-steps" id="navBar">
+  <button class="nav-btn active" onclick="showStep(0)"><b>●</b> 10वीं <b>→</b></button>
+  <button class="nav-btn" onclick="showStep(1)"><b>●</b> 11वीं-12वीं <b>→</b></button>
+  <button class="nav-btn" onclick="showStep(2)"><b>●</b> Diploma/ITI <b>→</b></button>
+  <button class="nav-btn" onclick="showStep(3)"><b>●</b> Graduation <b>→</b></button>
+  <button class="nav-btn" onclick="showStep(4)"><b>●</b> Post Graduation <b>→</b></button>
+  <button class="nav-btn" onclick="showStep(5)"><b>●</b> सरकारी नौकरी </button>
+</div>
+
+<div class="container">
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- STEP 0: 10वीं                          -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="step-section active" id="step0">
+    <div class="step-header">
+      <div class="step-badge">1</div>
+      <div>
+        <div class="step-title">10वीं (Matriculation / SSC)</div>
+        <div class="step-subtitle">भारत में शिक्षा की पहली महत्वपूर्ण परीक्षा</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="info-grid">
+        <div class="info-box"><h4>परीक्षा बोर्ड</h4><p>CBSE / ICSE / State Board</p></div>
+        <div class="info-box"><h4>उम्र</h4><p>14–16 साल</p></div>
+        <div class="info-box"><h4>मुख्य विषय</h4><p>Math, Science, SST, Hindi, English</p></div>
+        <div class="info-box"><h4>पासिंग मार्क्स</h4><p>33% (Board अनुसार)</p></div>
+      </div>
+
+      <div class="section-title">10वीं के बाद क्या करें?</div>
+      <ul class="stream-list">
+        <li><strong>11वीं-12वीं (Science/Commerce/Arts)</strong> — अगर आगे पढ़ना है</li>
+        <li><strong>ITI (Industrial Training Institute)</strong> — 2 साल का vocational course, जल्दी नौकरी</li>
+        <li><strong>Polytechnic Diploma</strong> — 3 साल, Engineering diploma</li>
+        <li><strong>NDA (National Defence Academy)</strong> — 10वीं बाद Army, Navy, Air Force</li>
+      </ul>
+
+      <div class="section-title">10वीं बाद सरकारी नौकरी के अवसर</div>
+
+      <div class="govt-card">
+        <h4>Railway (रेलवे) भर्ती</h4>
+        <ul>
+          <li>RRB Group D — Track Maintainer, Helper (10वीं पास)</li>
+          <li>RRB NTPC (Matric Level) — Junior Clerk, Goods Guard</li>
+          <li>वेतन: ₹18,000 – ₹35,000/माह</li>
+        </ul>
+      </div>
+
+      <div class="govt-card">
+        <h4>SSC (Staff Selection Commission)</h4>
+        <ul>
+          <li>SSC MTS (Multi Tasking Staff) — Central Govt. offices</li>
+          <li>SSC CHSL (10+2 के बाद, लेकिन अभी तैयारी शुरू करें)</li>
+          <li>वेतन: ₹18,000 – ₹25,000/माह</li>
+        </ul>
+      </div>
+
+      <div class="govt-card">
+        <h4>Indian Army / Police</h4>
+        <ul>
+          <li>Indian Army Soldier GD — 10वीं के बाद (17.5-21 साल)</li>
+          <li>State Police Constable — 10वीं/12वीं</li>
+          <li>CISF, BSF, CRPF Constable भर्ती</li>
+        </ul>
+      </div>
+
+      <div class="highlight-box">
+        <strong>💡 Tip:</strong> 10वीं में 60%+ marks लाने की कोशिश करें — बाद की परीक्षाओं में eligibility आसान होती है।
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- STEP 1: 11वीं – 12वीं                 -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="step-section" id="step1">
+    <div class="step-header">
+      <div class="step-badge">2</div>
+      <div>
+        <div class="step-title">11वीं – 12वीं (Intermediate / Higher Secondary)</div>
+        <div class="step-subtitle">Stream चुनना सबसे बड़ा निर्णय</div>
+      </div>
+    </div>
+    <div class="card">
+
+      <div class="section-title">तीन मुख्य Stream</div>
+      <div class="stream-cards">
+        <div class="stream-card science">
+          <div class="stream-name">🔬 Science</div>
+          <div class="stream-desc">Physics, Chemistry, Math/Biology</div>
+          <div style="margin-top:0.5rem;">
+            <span class="tag">Engineering</span>
+            <span class="tag">Medical</span>
+            <span class="tag">Research</span>
+          </div>
+          <div class="stream-hint">JEE / NEET की तैयारी</div>
+        </div>
+        <div class="stream-card commerce">
+          <div class="stream-name">📊 Commerce</div>
+          <div class="stream-desc">Accounts, Economics, Business</div>
+          <div style="margin-top:0.5rem;">
+            <span class="tag green">CA/CS</span>
+            <span class="tag green">Banking</span>
+            <span class="tag green">MBA</span>
+          </div>
+          <div class="stream-hint">Finance &amp; Business careers</div>
+        </div>
+        <div class="stream-card arts">
+          <div class="stream-name">📚 Arts/Humanities</div>
+          <div class="stream-desc">History, Geography, Pol. Science</div>
+          <div style="margin-top:0.5rem;">
+            <span class="tag orange">UPSC/IAS</span>
+            <span class="tag orange">Law</span>
+            <span class="tag orange">Teaching</span>
+          </div>
+          <div class="stream-hint">Civil Services की best preparation</div>
+        </div>
+      </div>
+
+      <div class="section-title">12वीं बाद सरकारी नौकरी</div>
+
+      <div class="govt-card">
+        <h4>SSC CHSL (Combined Higher Secondary Level)</h4>
+        <ul>
+          <li>Lower Division Clerk (LDC), Data Entry Operator (DEO)</li>
+          <li>Postal Assistant, Sorting Assistant</li>
+          <li>वेतन: ₹19,900 – ₹63,200/माह</li>
+          <li>परीक्षा: Tier-1 (CBT) + Tier-2 (Descriptive)</li>
+        </ul>
+      </div>
+
+      <div class="govt-card">
+        <h4>Banking — IBPS Clerk</h4>
+        <ul>
+          <li>Public sector banks में Clerk भर्ती</li>
+          <li>SBI Clerk, PNB, BOB, Canara Bank</li>
+          <li>वेतन: ₹11,765 – ₹31,540 + Allowances</li>
+        </ul>
+      </div>
+
+      <div class="govt-card">
+        <h4>Indian Air Force / Navy</h4>
+        <ul>
+          <li>Airmen (Group X &amp; Y) — 12वीं Science/Arts</li>
+          <li>Indian Navy Sailor MR/NMR</li>
+          <li>Coast Guard Navik GD &amp; DB</li>
+        </ul>
+      </div>
+
+      <div class="govt-card">
+        <h4>State Government Jobs</h4>
+        <ul>
+          <li>Patwari / Lekhpal (Revenue Dept.)</li>
+          <li>Anganwadi Worker, ASHA Worker</li>
+          <li>State Police Constable, Home Guard</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- STEP 2: Diploma / ITI                 -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="step-section" id="step2">
+    <div class="step-header">
+      <div class="step-badge">3</div>
+      <div>
+        <div class="step-title">Diploma / ITI (Vocational Courses)</div>
+        <div class="step-subtitle">जल्दी नौकरी पाने का सबसे अच्छा रास्ता</div>
+      </div>
+    </div>
+    <div class="card">
+
+      <div class="two-col">
+        <div>
+          <div class="section-title">ITI (Industrial Training Institute)</div>
+          <div class="info-box" style="margin-bottom:0.7rem;"><h4>अवधि</h4><p>6 महीने – 2 साल</p></div>
+          <div class="info-box" style="margin-bottom:0.7rem;"><h4>पात्रता</h4><p>8वीं / 10वीं पास</p></div>
+          <ul class="stream-list">
+            <li>Electrician (NSQF Level 5)</li>
+            <li>Fitter, Turner, Welder</li>
+            <li>Computer Operator (COPA)</li>
+            <li>Mechanic (Motor Vehicle)</li>
+            <li>Electronics Mechanic</li>
+            <li>Plumber, Mason, Carpenter</li>
+          </ul>
+        </div>
+        <div>
+          <div class="section-title">Polytechnic Diploma</div>
+          <div class="info-box" style="margin-bottom:0.7rem;"><h4>अवधि</h4><p>3 साल (10वीं बाद)</p></div>
+          <div class="info-box" style="margin-bottom:0.7rem;"><h4>पात्रता</h4><p>10वीं Math &amp; Science</p></div>
+          <ul class="stream-list">
+            <li>Civil Engineering</li>
+            <li>Mechanical Engineering</li>
+            <li>Electrical Engineering</li>
+            <li>Computer Science</li>
+            <li>Electronics &amp; Communication</li>
+            <li>Chemical Engineering</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-title">ITI/Diploma धारकों के लिए सरकारी नौकरी</div>
+
+      <div class="govt-card">
+        <h4>Railways (RRB ALP &amp; Technician)</h4>
+        <ul>
+          <li>Assistant Loco Pilot (ALP) — ITI Electrician/Fitter/Mechanic</li>
+          <li>Junior Engineer (JE) — Diploma holders</li>
+          <li>Technician Grade-3 — विभिन्न trades</li>
+          <li>वेतन: ₹19,900 – ₹63,200/माह + allowances</li>
+        </ul>
+      </div>
+
+      <div class="govt-card">
+        <h4>PSUs (Public Sector Undertakings)</h4>
+        <ul>
+          <li>BHEL, SAIL, NTPC, GAIL — ITI Apprentice/Technician</li>
+          <li>ONGC, HPCL, BPCL — Diploma Engineer Trainee</li>
+          <li>DRDO, ISRO — Junior Research Fellow (Diploma)</li>
+          <li>वेतन: ₹21,000 – ₹55,000/माह</li>
+        </ul>
+      </div>
+
+      <div class="govt-card">
+        <h4>State PWD / CPWD</h4>
+        <ul>
+          <li>Junior Engineer (JE) Civil/Electrical — Diploma</li>
+          <li>Technical Assistant — Diploma in relevant trade</li>
+          <li>Municipal Corporation Technical Posts</li>
+        </ul>
+      </div>
+
+      <div class="highlight-box">
+        <strong>💡 Lateral Entry:</strong> Diploma के बाद B.Tech 2nd year में सीधे admission ले सकते हैं (Lateral Entry Scheme)!
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- STEP 3: Graduation                    -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="step-section" id="step3">
+    <div class="step-header">
+      <div class="step-badge">4</div>
+      <div>
+        <div class="step-title">Graduation (Bachelor's Degree)</div>
+        <div class="step-subtitle">सरकारी और private दोनों में best opportunities</div>
+      </div>
+    </div>
+    <div class="card">
+
+      <div class="section-title">Popular Graduation Courses</div>
+      <div class="course-grid">
+        <div class="course-card blue">
+          <div class="course-name">Engineering (B.Tech)</div>
+          <div class="course-meta">4 साल | JEE/State CET</div>
+        </div>
+        <div class="course-card green">
+          <div class="course-name">B.Sc (Science)</div>
+          <div class="course-meta">3 साल | PCM/PCB</div>
+        </div>
+        <div class="course-card purple">
+          <div class="course-name">B.Com</div>
+          <div class="course-meta">3 साल | Commerce</div>
+        </div>
+        <div class="course-card orange">
+          <div class="course-name">BA (Arts)</div>
+          <div class="course-meta">3 साल | Any stream</div>
+        </div>
+        <div class="course-card red">
+          <div class="course-name">BCA</div>
+          <div class="course-meta">3 साल | IT/Software</div>
+        </div>
+        <div class="course-card green">
+          <div class="course-name">B.Ed</div>
+          <div class="course-meta">2 साल | Teaching</div>
+        </div>
+      </div>
+
+      <div class="section-title">Graduation के बाद सरकारी नौकरी</div>
+
+      <div class="govt-card">
+        <h4>SSC CGL (Combined Graduate Level) — सबसे बड़ी परीक्षा</h4>
+        <ul>
+          <li>Inspector of Income Tax, Inspector CBI, Assistant Audit Officer</li>
+          <li>Junior Statistical Officer (JSO)</li>
+          <li>Sub Inspector in CBI, NIA</li>
+          <li>वेतन: ₹25,500 – ₹1,51,100/माह (Post अनुसार)</li>
+        </ul>
+      </div>
+
+      <div class="govt-card">
+        <h4>Banking — IBPS PO / SBI PO</h4>
+        <ul>
+          <li>Probationary Officer (PO) in Nationalized Banks</li>
+          <li>RBI Assistant, RBI Grade B Officer</li>
+          <li>NABARD Development Assistant</li>
+          <li>वेतन: ₹52,000 – ₹95,000/माह (PO)</li>
+        </ul>
+      </div>
+
+      <div class="govt-card">
+        <h4>UPSC CDS (Defence Services)</h4>
+        <ul>
+          <li>IMA (Army Officer) — Any Graduation</li>
+          <li>AFA (Air Force Officer) — Graduation with Physics/Math</li>
+          <li>OTA (Officer Training Academy)</li>
+          <li>वेतन: ₹56,100/माह (Lieutenant) + भत्ते</li>
+        </ul>
+      </div>
+
+      <div class="govt-card">
+        <h4>State PSC (State Civil Services)</h4>
+        <ul>
+          <li>Deputy Collector, DSP, BDO — State level IAS जैसा</li>
+          <li>Sub-Inspector of Police (State)</li>
+          <li>Naib Tehsildar, Block Development Officer</li>
+        </ul>
+      </div>
+
+      <div class="govt-card">
+        <h4>Teaching (TGT/PGT)</h4>
+        <ul>
+          <li>Trained Graduate Teacher (TGT) — B.Ed + Graduation</li>
+          <li>CTET / State TET पास करके सरकारी School में teacher</li>
+          <li>KVS, NVS Teacher — Central Schools</li>
+          <li>वेतन: ₹35,000 – ₹70,000/माह</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- STEP 4: Post Graduation               -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="step-section" id="step4">
+    <div class="step-header">
+      <div class="step-badge">5</div>
+      <div>
+        <div class="step-title">Post Graduation (Master's / M.Tech / MBA)</div>
+        <div class="step-subtitle">High-level government posts और research के लिए</div>
+      </div>
+    </div>
+    <div class="card">
+
+      <div class="section-title">Popular PG Courses</div>
+      <table class="exam-table">
+        <tr><th>Course</th><th>Duration</th><th>Entrance</th><th>Career</th></tr>
+        <tr><td>M.Tech / ME</td><td>2 साल</td><td>GATE</td><td>PSU / Research / IES</td></tr>
+        <tr><td>MBA</td><td>2 साल</td><td>CAT / MAT</td><td>Banking / Management</td></tr>
+        <tr><td>M.Sc</td><td>2 साल</td><td>IIT JAM</td><td>CSIR / Research / Teaching</td></tr>
+        <tr><td>MA (Arts)</td><td>2 साल</td><td>University</td><td>UPSC / Teaching / Journalism</td></tr>
+        <tr><td>MCA</td><td>2 साल</td><td>State CET</td><td>IT Sector / Govt. IT Posts</td></tr>
+        <tr><td>LLM (Law)</td><td>1–2 साल</td><td>CLAT PG</td><td>Judiciary / Legal Services</td></tr>
+      </table>
+
+      <div class="section-title">PG के बाद Top सरकारी नौकरी</div>
+
+      <div class="govt-card">
+        <h4>UPSC IAS/IPS/IFS (Civil Services Examination)</h4>
+        <ul>
+          <li>IAS — District Collector, Secretary to Govt.</li>
+          <li>IPS — Superintendent of Police, IB, RAW</li>
+          <li>IFS — Indian Foreign Service, Embassy postings</li>
+          <li>वेतन: ₹56,100 – ₹2,50,000/माह + perks</li>
+        </ul>
+      </div>
+
+      <div class="govt-card">
+        <h4>UPSC IES / ESE (Engineering Services)</h4>
+        <ul>
+          <li>M.Tech/B.Tech वाले दे सकते हैं</li>
+          <li>Railways, CPWD, BRO, MES में Class-1 Officer</li>
+          <li>DRDO Scientist — GATE + Interview</li>
+          <li>वेतन: ₹56,100 – ₹1,77,500/माह</li>
+        </ul>
+      </div>
+
+      <div class="govt-card">
+        <h4>RBI Grade B Officer</h4>
+        <ul>
+          <li>Graduation 60% + PG preferred</li>
+          <li>Phase 1, 2, Interview</li>
+          <li>वेतन: ₹55,000 + allowances = ~₹1 Lakh/माह CTC</li>
+        </ul>
+      </div>
+
+      <div class="govt-card">
+        <h4>University / College Teaching (Assistant Professor)</h4>
+        <ul>
+          <li>UGC-NET / SLET पास करना जरूरी</li>
+          <li>Central University, IIT, NIT में faculty</li>
+          <li>वेतन: ₹57,700 – ₹1,44,200/माह (7th Pay Commission)</li>
+        </ul>
+      </div>
+
+      <div class="govt-card">
+        <h4>PhD + Research (CSIR/ICMR/DST)</h4>
+        <ul>
+          <li>CSIR JRF/SRF — ₹31,000 – ₹35,000/माह Fellowship</li>
+          <li>DRDO Research — Defence research labs</li>
+          <li>ISRO Scientist — Space research (SC/SD)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- STEP 5: सरकारी नौकरी Overview          -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="step-section" id="step5">
+    <div class="step-header">
+      <div class="step-badge">6</div>
+      <div>
+        <div class="step-title">सरकारी नौकरी — Complete Overview</div>
+        <div class="step-subtitle">सभी Levels की प्रमुख Exams और Boards</div>
+      </div>
+    </div>
+    <div class="card">
+
+      <div class="section-title">Exam Board और उनकी परीक्षाएं</div>
+      <table class="exam-table">
+        <tr><th>Board/Agency</th><th>प्रमुख परीक्षाएं</th><th>Eligibility</th></tr>
+        <tr><td><strong>UPSC</strong></td><td>IAS, IPS, IES, CDS, NDA, CAPF</td><td>Graduation+</td></tr>
+        <tr><td><strong>SSC</strong></td><td>CGL, CHSL, MTS, GD Constable, JE</td><td>10वीं से Graduation</td></tr>
+        <tr><td><strong>RRB</strong></td><td>NTPC, Group D, ALP, JE, RPF</td><td>10वीं से Graduation</td></tr>
+        <tr><td><strong>IBPS / SBI</strong></td><td>PO, Clerk, SO, RRB Officer</td><td>Graduation (any)</td></tr>
+        <tr><td><strong>State PSC</strong></td><td>State Civil Services, PCS, RAS, MPSC</td><td>Graduation</td></tr>
+        <tr><td><strong>Defence</strong></td><td>Army, Navy, Air Force भर्ती</td><td>10वीं से Graduation</td></tr>
+      </table>
+
+      <div class="section-title">Education Level के अनुसार Best Jobs</div>
+      <div style="margin: 0.5rem 0;">
+        <div class="job-level-row">
+          <span class="tag">10वीं पास</span>
+          <span class="desc">→ Army GD, RRB Group D, SSC MTS, Police Constable</span>
+        </div>
+        <div class="job-level-row">
+          <span class="tag">12वीं पास</span>
+          <span class="desc">→ SSC CHSL, IBPS Clerk, Airmen, Navy Sailor</span>
+        </div>
+        <div class="job-level-row">
+          <span class="tag orange">ITI / Diploma</span>
+          <span class="desc">→ RRB ALP/Tech, PSU Apprentice, JE (PWD/CPWD)</span>
+        </div>
+        <div class="job-level-row">
+          <span class="tag green">Graduation</span>
+          <span class="desc">→ SSC CGL, IBPS PO, CDS, TGT Teacher, Sub-Inspector</span>
+        </div>
+        <div class="job-level-row">
+          <span class="tag" style="background:#faf5ff;color:#44337a;border-color:#d6bcfa;">Post Graduation</span>
+          <span class="desc">→ UPSC IAS/IPS, RBI Grade B, Assistant Professor, Scientist</span>
+        </div>
+      </div>
+
+      <div class="section-title">Official Websites (Apply करने के लिए)</div>
+      <div class="website-grid">
+        <a href="https://www.upsc.gov.in" target="_blank" rel="noopener noreferrer" class="website-card"><div class="site-name">UPSC</div><div class="site-url">upsc.gov.in</div></a>
+        <a href="https://ssc.nic.in" target="_blank" rel="noopener noreferrer" class="website-card"><div class="site-name">SSC</div><div class="site-url">ssc.nic.in</div></a>
+        <a href="https://www.indianrailways.gov.in" target="_blank" rel="noopener noreferrer" class="website-card"><div class="site-name">RRB Railway</div><div class="site-url">indianrailways.gov.in</div></a>
+        <a href="https://www.ibps.in" target="_blank" rel="noopener noreferrer" class="website-card"><div class="site-name">IBPS Banking</div><div class="site-url">ibps.in</div></a>
+        <a href="https://joinindianarmy.nic.in" target="_blank" rel="noopener noreferrer" class="website-card"><div class="site-name">Indian Army</div><div class="site-url">joinindianarmy.nic.in</div></a>
+        <a href="https://www.ncs.gov.in" target="_blank" rel="noopener noreferrer" class="website-card"><div class="site-name">NCS (Jobs Portal)</div><div class="site-url">ncs.gov.in</div></a>
+      </div>
+
+      <div class="highlight-box" style="margin-top:1.2rem;">
+        <strong>🏆 Golden Tip:</strong> जो भी exam दें — Current Affairs पढ़ें, Math/Reasoning strong करें, और <strong>previous year papers</strong> ज़रूर solve करें। Consistency ही success है!
+      </div>
+    </div>
+  </div>
+
+</div><!-- end container -->
+
+<!-- Chatbot Modal -->
+<div id="chatbot-modal" class="chatbot-modal hidden">
+  <div class="chatbot-wrapper">
+    <div class="chatbot-header">
+      <h3>💬 Career Guide AI</h3>
+      <button class="chatbot-close" onclick="closeChatbot()">✕</button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages"></div>
+    <div class="chatbot-footer">
+      <input type="text" id="user-input" placeholder="Ask about careers, education..." onkeypress="if(event.key==='Enter') sendMessage()">
+      <button onclick="sendMessage()" class="send-btn">Send</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Career Guidance Portal &nbsp;|&nbsp; Diploma (CS) Student Project &nbsp;|&nbsp; सभी जानकारी UPSC/SSC/RRB आधिकारिक sources पर आधारित
+</footer>
+
+<script src="script.js"></script>
+<script src="chatbot.js"></script>
+<script>
+function toggleTeamWidget() {
+  const body = document.getElementById('team-widget-body');
+  const icon = document.getElementById('team-toggle-icon');
+  const isOpen = body.style.display !== 'none';
+  body.style.display = isOpen ? 'none' : 'block';
+  icon.textContent = isOpen ? '▼' : '▲';
+}
+
+// ── Auth Button: Login ya Logout dynamically dikhao ──
+function updateAuthButton() {
+  const user = localStorage.getItem('dreamhubUser');
+  const area = document.getElementById('fixed-auth-area');
+  if (!area) return;
+
+  if (user) {
+    // Logged in: show username + Logout
+    area.innerHTML = `
+      <div class="fixed-user-pill">
+        <span class="user-avatar-sm">👤</span>
+        <span class="user-name-sm" title="${user}">${user.length > 14 ? user.substring(0,14)+'…' : user}</span>
+        <button class="logout-btn" onclick="logoutUser()" title="Logout">Logout 🚪</button>
+      </div>
+    `;
+  } else {
+    // Not logged in: show Login button
+    area.innerHTML = `
+      <a href="/frontend/login.html" class="fixed-login-btn">
+        <span class="login-icon">👤</span>
+        <span class="login-text">Login / Register</span>
+      </a>
+    `;
+  }
+}
+
+function logoutUser() {
+  if (confirm('क्या आप Logout करना चाहते हैं?')) {
+    localStorage.removeItem('dreamhubUser');
+    localStorage.removeItem('dreamhubToken');
+    updateAuthButton();
+    // Chatbot band karo agar khula ho
+    const modal = document.getElementById('chatbot-modal');
+    if (modal) modal.classList.add('hidden');
+    // Success toast
+    const t = document.createElement('div');
+    t.style.cssText = 'position:fixed;top:80px;right:20px;background:#2f855a;color:white;padding:0.8rem 1.4rem;border-radius:12px;font-weight:600;z-index:99999;box-shadow:0 4px 20px rgba(0,0,0,0.2);animation:slideDown 0.3s ease';
+    t.textContent = '✅ Logout हो गए!';
+    document.body.appendChild(t);
+    setTimeout(() => t.remove(), 2500);
+  }
+}
+
+// Page load par check karo
+updateAuthButton();
+</script>
+</body>
+</html>

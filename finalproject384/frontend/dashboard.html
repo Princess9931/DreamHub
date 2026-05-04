@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DreamHub Dashboard</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .dashboard-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .dashboard-card {
+      background: white;
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+      animation: slideUp 0.5s ease-out;
+      text-align: center;
+    }
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .dashboard-card h1 {
+      font-size: 2.2rem;
+      color: #667eea;
+      margin: 0 0 1rem;
+    }
+    .welcome-emoji {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    .dashboard-card p {
+      color: #4a5568;
+      line-height: 1.8;
+      font-size: 1rem;
+      margin: 1rem 0;
+    }
+    .dashboard-card #dashboard-welcome {
+      font-size: 1.1rem;
+      color: #2d3748;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .dashboard-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .dashboard-actions button {
+      padding: 1.1rem 2rem;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+    #btn-continue {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+    }
+    #btn-continue:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+    }
+    #btn-logout {
+      background: #f7fafc;
+      color: #667eea;
+      border: 2px solid #e2e8f0;
+    }
+    #btn-logout:hover {
+      background: #edf2f7;
+      border-color: #cbd5e0;
+    }
+    .info-box {
+      background: #f7fafc;
+      border-left: 4px solid #667eea;
+      padding: 1.2rem;
+      border-radius: 10px;
+      margin-top: 1.5rem;
+      text-align: left;
+    }
+    .info-box strong {
+      color: #667eea;
+    }
+    .auth-help {
+      color: #718096;
+      font-size: 0.85rem;
+      margin-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="dashboard-card">
+      <div class="welcome-emoji">🎓</div>
+      <h1>Welcome to DreamHub</h1>
+      <p id="dashboard-welcome">Loading your profile...</p>
+      
+      <div class="info-box">
+        <strong>🚀 Career Guidance Portal</strong>
+        <p>10वीं से Post Graduation तक, शिक्षा और करियर की पूरी जानकारी</p>
+      </div>
+
+      <div class="dashboard-actions">
+        <button class="primary-btn" id="btn-continue" onclick="goHome()">Career Guidance Portal खोलें →</button>
+        <button class="secondary-btn" id="btn-logout" onclick="logout()">Logout</button>
+      </div>
+      
+      <div class="auth-help">
+        💡 Ready to explore your career path? Start with Step 1: 10वीं
+      </div>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

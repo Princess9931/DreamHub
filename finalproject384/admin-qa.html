@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q&A Management - Admin Panel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .panel {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .tabs {
+            display: flex;
+            background: #f0f4f8;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 1.5rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #718096;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-btn.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+            background: white;
+        }
+
+        .tab-btn:hover {
+            background: white;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 2rem;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1a202c;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-small {
+            width: auto;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-delete {
+            background: #f56565;
+        }
+
+        .btn-delete:hover {
+            background: #e53e3e;
+            box-shadow: 0 10px 25px rgba(245, 101, 101, 0.4);
+        }
+
+        .message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .message.success {
+            background: #f0fff4;
+            color: #22543d;
+            border: 2px solid #9ae6b4;
+        }
+
+        .message.error {
+            background: #fff5f5;
+            color: #742a2a;
+            border: 2px solid #fc8181;
+        }
+
+        .qa-list {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .qa-item {
+            background: #f7fafc;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .qa-item h3 {
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .qa-item p {
+            color: #4a5568;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .qa-category {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .qa-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 1rem;
+            padding-left: 2.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .search-box::before {
+            content: '🔍';
+            position: absolute;
+            left: 0.8rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Q&A Management</h1>
+            <p>Manage education and career guidance Q&A database</p>
+        </div>
+
+        <div class="panel">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('add', event)">➕ Add New Q&A</button>
+                <button class="tab-btn" onclick="switchTab('view', event)">👁️ View All Q&A</button>
+                <button class="tab-btn" onclick="switchTab('stats', event)">📊 Statistics</button>
+            </div>
+
+            <!-- Add Q&A Tab -->
+            <div id="add" class="tab-content active">
+                <div id="add-message"></div>
+                <form onsubmit="handleAddQA(event)">
+                    <div class="form-group">
+                        <label>Question (सवाल)*</label>
+                        <input type="text" id="question" placeholder="e.g., 10th के बाद क्या करें" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Answer (जवाब)*</label>
+                        <textarea id="answer" placeholder="Write detailed answer..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="category">
+                            <option value="Education Path">Education Path</option>
+                            <option value="Government Job">Government Job</option>
+                            <option value="Exam Preparation">Exam Preparation</option>
+                            <option value="Alternate Path">Alternate Path</option>
+                            <option value="Career Guidance">Career Guidance</option>
+                            <option value="General">General</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn">Add Q&A ✅</button>
+                </form>
+            </div>
+
+            <!-- View Q&A Tab -->
+            <div id="view" class="tab-content">
+                <div class="search-box">
+                    <input type="text" id="search" placeholder="Search questions..." onkeyup="filterQA()">
+                </div>
+                <div id="qa-list" class="qa-list">
+                    <p style="text-align: center; color: #718096;">Loading...</p>
+                </div>
+            </div>
+
+            <!-- Statistics Tab -->
+            <div id="stats" class="tab-content">
+                <div id="stats-container" style="text-align: center; padding: 2rem;">
+                    <p>Loading statistics...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName, event) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+
+            // Load data for view tab
+            if (tabName === 'view') {
+                loadAllQA();
+            } else if (tabName === 'stats') {
+                loadStats();
+            }
+        }
+
+        async function handleAddQA(event) {
+            event.preventDefault();
+            const question = document.getElementById('question').value;
+            const answer = document.getElementById('answer').value;
+            const category = document.getElementById('category').value;
+
+            try {
+                const response = await fetch('/add-qa', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ question, answer, category })
+                });
+
+                const data = await response.json();
+                const messageDiv = document.getElementById('add-message');
+
+                if (response.ok) {
+                    messageDiv.innerHTML = `<div class="message success">${data.msg}</div>`;
+                    document.getElementById('question').value = '';
+                    document.getElementById('answer').value = '';
+                    document.getElementById('category').selectedIndex = 0;
+                    setTimeout(() => messageDiv.innerHTML = '', 3000);
+                } else {
+                    messageDiv.innerHTML = `<div class="message error">${data.msg}</div>`;
+                }
+            } catch (error) {
+                document.getElementById('add-message').innerHTML = 
+                    `<div class="message error">Error: ${error.message}</div>`;
+            }
+        }
+
+        async function loadAllQA() {
+            try {
+                const response = await fetch('/get-all-qa');
+                const data = await response.json();
+
+                let html = '';
+                if (data.qas && data.qas.length > 0) {
+                    data.qas.forEach(qa => {
+                        html += `
+                            <div class="qa-item">
+                                <span class="qa-category">${qa.category || 'General'}</span>
+                                <h3>❓ ${qa.question}</h3>
+                                <p><strong>Answer:</strong> ${qa.answer}</p>
+                                <p style="font-size: 0.8rem; color: #a0aec0;">Added: ${qa.created_at ? new Date(qa.created_at).toLocaleDateString('en-IN') : 'N/A'}</p>
+                                <div class="qa-actions">
+                                    <button class="btn btn-small btn-delete" onclick="deleteQA(${qa.id})">Delete</button>
+                                </div>
+                            </div>
+                        `;
+                    });
+                } else {
+                    html = '<p style="color: #718096; text-align: center;">No Q&A found in database</p>';
+                }
+                
+                document.getElementById('qa-list').innerHTML = html;
+            } catch (error) {
+                document.getElementById('qa-list').innerHTML = 
+                    `<p style="color: #f56565;">Error loading Q&A: ${error.message}</p>`;
+            }
+        }
+
+        async function loadStats() {
+            try {
+                const response = await fetch('/get-all-qa');
+                const data = await response.json();
+
+                const qas = data.qas || [];
+                const total = qas.length;
+
+                // Count unique categories
+                const categories = new Set(qas.map(qa => qa.category || 'General'));
+                const categoryCount = categories.size;
+
+                // Count per category
+                const catBreakdown = {};
+                qas.forEach(qa => {
+                    const cat = qa.category || 'General';
+                    catBreakdown[cat] = (catBreakdown[cat] || 0) + 1;
+                });
+
+                let breakdownHTML = Object.entries(catBreakdown).map(([cat, count]) =>
+                    `<div class="qa-item" style="display:flex; justify-content:space-between; align-items:center;">
+                        <span class="qa-category">${cat}</span>
+                        <strong>${count} Q&A</strong>
+                    </div>`
+                ).join('');
+
+                document.getElementById('stats-container').innerHTML = `
+                    <div class="stats">
+                        <div class="stat-card">
+                            <div class="stat-number">${total}</div>
+                            <div class="stat-label">Total Q&A</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">${categoryCount}</div>
+                            <div class="stat-label">Categories</div>
+                        </div>
+                    </div>
+                    <h3 style="margin: 1.5rem 0 1rem; color: #1a202c;">📂 Category Breakdown</h3>
+                    ${breakdownHTML || '<p style="color:#718096;">No data available</p>'}
+                `;
+            } catch (error) {
+                document.getElementById('stats-container').innerHTML =
+                    `<p style="color: #f56565;">Error loading stats: ${error.message}</p>`;
+            }
+        }
+
+        function filterQA() {
+            const query = document.getElementById('search').value.toLowerCase().trim();
+            const items = document.querySelectorAll('#qa-list .qa-item');
+            items.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                item.style.display = text.includes(query) ? 'block' : 'none';
+            });
+        }
+
+        async function deleteQA(id) {
+            if (!confirm('Are you sure you want to delete this Q&A?')) return;
+
+            try {
+                const response = await fetch('/delete-qa', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id })
+                });
+
+                const data = await response.json();
+                alert(data.msg);
+                loadAllQA();
+            } catch (error) {
+                alert('Error deleting Q&A: ' + error.message);
+            }
+        }
+
+        // Load view on page load
+        loadStats();
+    </script>
+</body>
+</html>

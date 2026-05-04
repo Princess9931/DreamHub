@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Members - DreamHub</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .team-hero {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .team-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #1a202c;
+        }
+
+        .team-hero p {
+            font-size: 1.1rem;
+            color: #718096;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .member-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .member-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.25);
+        }
+
+        .member-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+            border: 4px solid white;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .member-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .member-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .member-role {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .member-body {
+            padding: 1.5rem;
+        }
+
+        .member-about {
+            font-size: 0.95rem;
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .member-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-tag {
+            background: #f0f4f8;
+            color: #667eea;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .member-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .member-link:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.8rem 1.5rem;
+            background: #f0f4f8;
+            color: #667eea;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="hero-copy">
+                <h1>🎓 DreamHub</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="team-container">
+        <a href="index.html" class="back-button">← Back to Portal</a>
+
+        <div class="team-hero">
+            <h1>Meet Our Team</h1>
+            <p>5 talented students building the future together 🚀</p>
+        </div>
+
+        <div class="members-grid">
+            <!-- Abhishek -->
+            <div class="member-card">
+                <div class="member-header">
+                    <div class="member-avatar"><img src="../finalprofile/Abhiprofile/photo.jpeg" alt="Abhishek Bachchan"></div>
+                    <h2 class="member-name">Abhishek Bachchan</h2>
+                    <p class="member-role">Computer Science & Engineering</p>
+                </div>
+                <div class="member-body">
+                    <p class="member-about">Passionate Computer Science & Engineering student with strong interest in Web development and problem solving. Loves building things with code and constantly learning new technologies.</p>
+                    <div class="member-skills">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                    </div>
+                    <a href="../finalprofile/Abhiprofile/index.html" class="member-link">View Full Profile →</a>
+                </div>
+            </div>
+
+            <!-- Alok -->
+            <div class="member-card">
+                <div class="member-header">
+                    <div class="member-avatar"><img src="../finalprofile/Alokprofile/photo.jpeg" alt="Alok Raj"></div>
+                    <h2 class="member-name">Alok Raj</h2>
+                    <p class="member-role">Computer Science & Engineering</p>
+                </div>
+                <div class="member-body">
+                    <p class="member-about">Dedicated CSE student passionate about full-stack development and creating innovative solutions. Focused on building scalable applications with modern technologies.</p>
+                    <div class="member-skills">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                    <a href="../finalprofile/Alokprofile/index.html" class="member-link">View Full Profile →</a>
+                </div>
+            </div>
+
+            <!-- Golu -->
+            <div class="member-card">
+                <div class="member-header">
+                    <div class="member-avatar"><img src="../finalprofile/Goluprofile/photo.jpeg" alt="Golu Raj"></div>
+                    <h2 class="member-name">Golu Raj</h2>
+                    <p class="member-role">Computer Science & Engineering</p>
+                </div>
+                <div class="member-body">
+                    <p class="member-about">Creative CSE student passionate about beautiful user interfaces and seamless user experiences. Combines design thinking with development skills.</p>
+                    <div class="member-skills">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        
+                    </div>
+                    <a href="../finalprofile/Goluprofile/index.html" class="member-link">View Full Profile →</a>
+                </div>
+            </div>
+
+            <!-- Prince -->
+            <div class="member-card">
+                <div class="member-header">
+                    <div class="member-avatar"><img src="../finalprofile/Princeprofile/photo.jpeg" alt="Prince Raj"></div>
+                    <h2 class="member-name">Prince Raj</h2>
+                    <p class="member-role">Computer Science & Engineering</p>
+                </div>
+                <div class="member-body">
+                    <p class="member-about">Backend specialist CSE student focused on building robust and scalable systems. Expert in database design and API development with a passion for clean code.</p>
+                    <div class="member-skills">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">html</span>
+                        <span class="skill-tag">css</span>
+                        <span class="skill-tag">AI</span>
+                    </div>
+                    <a href="../finalprofile/Princeprofile/index.html" class="member-link">View Full Profile →</a>
+                </div>
+            </div>
+
+            <!-- Priyanshu -->
+            <div class="member-card">
+                <div class="member-header">
+                    <div class="member-avatar"><img src="../finalprofile/Priyanshuprofile/photo.jpeg" alt="Priyanshu Kumar"></div>
+                    <h2 class="member-name">Priyanshu Kumar</h2>
+                    <p class="member-role">Computer Science & Engineering</p>
+                </div>
+                <div class="member-body">
+                    <p class="member-about">Versatile CSE student comfortable with both frontend and backend technologies. Passionate about clean code, best practices, and creating efficient solutions.</p>
+                    <div class="member-skills">
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">MySQL</span>
+                    </div>
+                    <a href="../finalprofile/Priyanshuprofile/index.html" class="member-link">View Full Profile →</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>🌟 DreamHub — Building Tomorrow's Career Guides | © 2024-2026</p>
+    </footer>
+</body>
+</html>
